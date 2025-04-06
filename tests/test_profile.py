@@ -2,10 +2,9 @@ from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.profile_page import ProfilePage
 from conftest import driver
+from data.user_data import EMAIL, PASSWORD
 
 class TestProfile:
-    EMAIL = "anatoly_chemulov_20_123@yandex.ru"
-    PASSWORD = "123456"
 
     def test_go_to_profile(self, driver):
         main_page = MainPage(driver)
@@ -13,7 +12,7 @@ class TestProfile:
         main_page.go_to_login()
 
         login_page = LoginPage(driver)
-        login_page.login(self.EMAIL, self.PASSWORD)
+        login_page.login(EMAIL, PASSWORD)
 
         main_page.go_to_personal_account()
 
@@ -26,7 +25,7 @@ class TestProfile:
         main_page.go_to_login()
 
         login_page = LoginPage(driver)
-        login_page.login(self.EMAIL, self.PASSWORD)
+        login_page.login(EMAIL, PASSWORD)
 
         main_page.go_to_personal_account()
 
@@ -41,7 +40,7 @@ class TestProfile:
         main_page.go_to_login()
 
         login_page = LoginPage(driver)
-        login_page.login(self.EMAIL, self.PASSWORD)
+        login_page.login(EMAIL, PASSWORD)
 
         main_page.go_to_personal_account()
 

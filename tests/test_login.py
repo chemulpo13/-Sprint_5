@@ -2,11 +2,9 @@ from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.register_page import RegisterPage
 from conftest import driver
-
+from data.user_data import EMAIL, PASSWORD
 
 class TestLogin:
-    EMAIL = "anatoly_chemulov_20_123@yandex.ru"
-    PASSWORD = "123456"
 
     def test_login_from_main_page(self, driver):
         main_page = MainPage(driver)
@@ -14,7 +12,7 @@ class TestLogin:
         main_page.go_to_login()
 
         login_page = LoginPage(driver)
-        login_page.login(self.EMAIL, self.PASSWORD)
+        login_page.login(EMAIL, PASSWORD)
 
         assert main_page.is_main_page_opened(), "После входа не открылась главная страница"
 
@@ -24,7 +22,7 @@ class TestLogin:
         main_page.go_to_personal_account()
 
         login_page = LoginPage(driver)
-        login_page.login(self.EMAIL, self.PASSWORD)
+        login_page.login(EMAIL, PASSWORD)
 
         assert main_page.is_main_page_opened(), "После входа не открылась главная страница"
 
@@ -34,7 +32,7 @@ class TestLogin:
         register_page.go_to_login()
 
         login_page = LoginPage(driver)
-        login_page.login(self.EMAIL, self.PASSWORD)
+        login_page.login(EMAIL, PASSWORD)
 
         main_page = MainPage(driver)
         assert main_page.is_main_page_opened(), "После входа не открылась главная страница"
@@ -46,7 +44,7 @@ class TestLogin:
 
         driver.get("https://stellarburgers.nomoreparties.site/login")
 
-        login_page.login(self.EMAIL, self.PASSWORD)
+        login_page.login(EMAIL, PASSWORD)
 
         main_page = MainPage(driver)
         assert main_page.is_main_page_opened(), "После входа не открылась главная страница"
