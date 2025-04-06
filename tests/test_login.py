@@ -1,3 +1,4 @@
+import allure
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.register_page import RegisterPage
@@ -6,6 +7,7 @@ from data.user_data import EMAIL, PASSWORD
 
 class TestLogin:
 
+    @allure.title('Вход в аккаунт через кнопку "Войти в аккаунт" на главной странице')
     def test_login_from_main_page(self, driver):
         main_page = MainPage(driver)
         main_page.open()
@@ -16,6 +18,7 @@ class TestLogin:
 
         assert main_page.is_main_page_opened(), "После входа не открылась главная страница"
 
+    @allure.title('Вход в аккаунт через кнопку "Личный кабинет"')
     def test_login_from_personal_account_button(self, driver):
         main_page = MainPage(driver)
         main_page.open()
@@ -26,6 +29,7 @@ class TestLogin:
 
         assert main_page.is_main_page_opened(), "После входа не открылась главная страница"
 
+    @allure.title('Вход в аккаунт через форму регистрации')
     def test_login_from_register_form(self, driver):
         register_page = RegisterPage(driver)
         register_page.open()
@@ -37,6 +41,7 @@ class TestLogin:
         main_page = MainPage(driver)
         assert main_page.is_main_page_opened(), "После входа не открылась главная страница"
 
+    @allure.title('Вход в аккаунт через форму восстановления пароля')
     def test_login_from_forgot_password_form(self, driver):
         login_page = LoginPage(driver)
         login_page.open()

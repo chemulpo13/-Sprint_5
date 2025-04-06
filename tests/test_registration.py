@@ -1,3 +1,4 @@
+import allure
 from pages.register_page import RegisterPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
@@ -6,6 +7,7 @@ from conftest import driver
 
 class TestRegistration:
 
+    @allure.title('Успешная регистрация пользователя')
     def test_successful_registration(self, driver):
         name = generate_name()
         email = generate_email(cohort_number=5)
@@ -23,6 +25,7 @@ class TestRegistration:
         main_page = MainPage(driver)
         assert main_page.is_main_page_opened(), "После входа не открылась главная страница"
 
+    @allure.title('Проверка валидации пароля при регистрации')
     def test_registration_with_short_password(self, driver):
         name = generate_name()
         email = generate_email(cohort_number=5)

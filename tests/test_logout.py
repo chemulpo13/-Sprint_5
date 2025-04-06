@@ -1,3 +1,4 @@
+import allure
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.profile_page import ProfilePage
@@ -6,6 +7,7 @@ from data.user_data import EMAIL, PASSWORD
 
 class TestLogout:
 
+    @allure.title('Выход из аккаунта через личный кабинет')
     def test_logout(self, driver):
         main_page = MainPage(driver)
         main_page.open()
