@@ -1,0 +1,22 @@
+from .base_page import BasePage
+from locators.register_locators import RegisterPageLocators
+
+
+class RegisterPage(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver, url="https://stellarburgers.nomoreparties.site/register")
+
+    def register(self, name, email, password):
+        self.find_and_input(RegisterPageLocators.NAME_INPUT, name)
+        self.find_and_input(RegisterPageLocators.EMAIL_INPUT, email)
+        self.find_and_input(RegisterPageLocators.PASSWORD_INPUT, password)
+        self.find_and_click(RegisterPageLocators.REGISTER_BUTTON)
+
+    def go_to_login(self):
+        self.find_and_click(RegisterPageLocators.LOGIN_LINK)
+
+    def is_register_page_opened(self):
+        return self.is_element_visible(RegisterPageLocators.REGISTER_HEADER)
+
+    def is_password_error_displayed(self):
+        return self.is_element_visible(RegisterPageLocators.PASSWORD_ERROR)
