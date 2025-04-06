@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from locators.profile_locators import ProfilePageLocators
-from locators.main_locators import MainPageLocators
 
 class ProfilePage(BasePage):
     def __init__(self, driver):
@@ -13,6 +12,7 @@ class ProfilePage(BasePage):
         return self.is_element_visible(ProfilePageLocators.PROFILE_HEADER)
 
     def go_to_constructor(self):
+        from locators.main_locators import MainPageLocators
         self.find_and_click(MainPageLocators.CONSTRUCTOR_BUTTON)
 
     def click_logo(self):
