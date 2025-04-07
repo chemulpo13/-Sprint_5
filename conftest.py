@@ -11,7 +11,6 @@ def driver():
     driver = webdriver.Chrome(service=service, options=options)
 
     driver.maximize_window()
-    driver.implicitly_wait(10)
 
     yield driver
 
