@@ -55,9 +55,3 @@ class BasePage:
         element.clear()
         element.send_keys(text)
         return element
-
-    @allure.title("Ожидание видимости элемента {locator}")
-    def wait_for_element_visible(self, locator, timeout=10):
-        return WebDriverWait(self.driver, timeout).until(
-            EC.visibility_of_element_located(locator)
-        )
