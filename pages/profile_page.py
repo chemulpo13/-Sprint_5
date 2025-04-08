@@ -13,13 +13,3 @@ class ProfilePage(BasePage):
     @allure.title("Проверка открытия страницы профиля")
     def is_profile_page_opened(self):
         return self.is_element_visible(ProfilePageLocators.PROFILE_HEADER)
-
-    @allure.title("Переход на страницу конструктора")
-    def go_to_constructor(self):
-        from locators.main_locators import MainPageLocators
-        self.find_and_click(MainPageLocators.CONSTRUCTOR_BUTTON)
-
-    @allure.title("Клик по логотипу сайта")
-    def click_logo(self):
-        from locators.main_locators import MainPageLocators
-        self.find_and_click(MainPageLocators.LOGO)

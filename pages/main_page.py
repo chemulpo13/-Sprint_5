@@ -19,6 +19,14 @@ class MainPage(BasePage):
     def is_main_page_opened(self):
         return self.is_element_visible(MainPageLocators.PAGE_TITLE)
 
+    @allure.title("Проверка видимости конструктора")
+    def is_constructor_visible(self):
+        return self.is_element_visible(MainPageLocators.PAGE_TITLE)
+
+    @allure.title("Переход на страницу конструктора")
+    def go_to_constructor(self):
+        self.find_and_click(MainPageLocators.CONSTRUCTOR_BUTTON)
+
     @allure.title("Переключение на вкладку 'Булки'")
     def switch_to_buns_tab(self):
         self.find_and_click(MainPageLocators.BUNS_TAB)

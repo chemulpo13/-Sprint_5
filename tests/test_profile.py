@@ -32,8 +32,8 @@ class TestProfile:
 
         main_page.go_to_personal_account()
 
-        profile_page = ProfilePage(driver)
-        profile_page.go_to_constructor()
+        main_page = MainPage(driver)
+        main_page.go_to_constructor()
 
         assert main_page.is_main_page_opened(), "Не открылась главная страница с конструктором"
 
@@ -48,7 +48,7 @@ class TestProfile:
 
         main_page.go_to_personal_account()
 
-        profile_page = ProfilePage(driver)
+        profile_page = MainPage(driver)
         profile_page.click_logo()
 
         assert main_page.is_main_page_opened(), "Не открылась главная страница после клика по логотипу"
