@@ -6,10 +6,10 @@ class ProfilePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver, url="https://stellarburgers.nomoreparties.site/profile")
 
-    @allure.title("Выход из аккаунта пользователя")
+    @allure.step("Выход из аккаунта пользователя")
     def logout(self):
         self.find_and_click(ProfilePageLocators.LOGOUT_BUTTON)
 
-    @allure.title("Проверка открытия страницы профиля")
+    @allure.step("Проверка открытия страницы профиля")
     def is_profile_page_opened(self):
         return self.is_element_visible(ProfilePageLocators.PROFILE_HEADER)
